@@ -1,5 +1,14 @@
 # freeCodeCamp-projects
 solutions of some freeCodeCamp projects
+## Contents
+## [Front End Library Projects](https://github.com/BUB97/freeCodeCamp-projects/blob/master/README.md#front-end-library-projects)
++ [Markdown Previewer](https://github.com/BUB97/freeCodeCamp-projects/blob/master/README.md#2markdown-previewer)
+## [APIs and Microservices Projects](https://github.com/BUB97/freeCodeCamp-projects/blob/master/README.md#apis-and-microservices-projects)
++ [Timestamp Microservice](https://github.com/BUB97/freeCodeCamp-projects/blob/master/README.md#1-timestamp-microservice)
++ [Request Header Parser Microservice](https://github.com/BUB97/freeCodeCamp-projects/blob/master/README.md#2request-header-parser-microservice)
++ [URL Shortener Microservice](https://github.com/BUB97/freeCodeCamp-projects/blob/master/README.md#3url-shortener-microservice)
+
+
 
 ## Front End Library Projects
 ### 2.Markdown Previewer
@@ -113,7 +122,7 @@ app.get("/api/timestamp/:date_string?",function(req,res){
   }
 })
 ```
-### 2.Request Header Parser Microservice
+### 2. Request Header Parser Microservice
 referrence: [Express documentatioin](http://www.expressjs.com.cn/4x/api.html#req)
 ```javascript
 app.get("/api/whoami",function(req,res){
@@ -121,7 +130,7 @@ app.get("/api/whoami",function(req,res){
   //you can also use req.acceptsLanguages() to get preffered languages
 })
 ```
-### 3.URL Shortener Microservice
+### 3. URL Shortener Microservice
 #### Watch out the version of mongodb and mongoose dependencies (change "package.json")
 the initial project use dependencies as:
 ```javascript
