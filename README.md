@@ -25,3 +25,11 @@ app.get("/api/timestamp/:date_string?",function(req,res){
   }
 })
 ```
+### 2.Request Header Parser Microservice
+referrence: [Express documentatioin](http://www.expressjs.com.cn/4x/api.html#req)
+```javascript
+app.get("/api/whoami",function(req,res){
+  res.json({"ipaddress":req.ip,"language":req.get('Accept-Language'),"software":req.get('User-Agent')});
+  //you can also use req.acceptsLanguages() to get preffered languages
+})
+```
