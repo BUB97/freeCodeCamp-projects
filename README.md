@@ -1,6 +1,94 @@
 # freeCodeCamp-projects
 solutions of some freeCodeCamp projects
 
+## Front End Library Projects
+### 2.Markdown Previewer
+#### html
+```html
+<div id="root"></div>
+```
+#### JS(use react.js, react-dom.js, redux.js, react-redux.js, marked.js)
+```javascript
+const input = (text) => {
+  return {
+  type : 'input',
+  text : text
+  }
+}
+
+const inputReducer = (text = "<h1>Hello World</h1>",action) => {
+  switch(action.type){
+    case 'input':
+      return marked(action.text);
+    default:
+      return marked(text);
+  }
+}
+
+const store = Redux.createStore(inputReducer);
+
+class Markdown extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  
+  componentDidMount() {
+  document.getElementById("preview").innerHTML = this.props.content;
+  }
+  
+    componentWillReceiveProps(nextProps) {
+  document.getElementById("preview").innerHTML = nextProps.content;
+  }
+  
+  handleChange(event){
+    this.props.show(event.target.value);
+  }
+  
+  render(){
+    return (
+    <div>
+        <textarea id="editor" onChange={this.handleChange} />
+        <p id="preview" innerHTML={this.props.content}></p>
+    </div>
+    )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    content : state
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    show : function(text){
+      dispatch(input(text))
+    }
+  }
+}
+
+const Container = ReactRedux.connect(mapStateToProps,mapDispatchToProps)(Markdown)
+
+const Provider = ReactRedux.Provider;
+
+class AppWrapper extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return (
+    <Provider store={store}>
+    <Container />
+    </Provider>
+    )
+  }
+}
+
+ReactDOM.render(<AppWrapper />,document.getElementById('root'));
+```
+
 ## APIs and Microservices Projects
 ### 1. Timestamp Microservice
 change "server.js"
@@ -33,3 +121,5 @@ app.get("/api/whoami",function(req,res){
   //you can also use req.acceptsLanguages() to get preffered languages
 })
 ```
+### 3.URL Shortener Microservice
+
