@@ -34,11 +34,11 @@ class Markdown extends React.Component {
   }
   
   componentDidMount() {
-  document.getElementById("preview").innerHTML = this.props.content;
+    document.getElementById("preview").innerHTML = this.props.content;
   }
   
-    componentWillReceiveProps(nextProps) {
-  document.getElementById("preview").innerHTML = nextProps.content;
+  componentWillReceiveProps(nextProps) {
+    document.getElementById("preview").innerHTML = nextProps.content;
   }
   
   handleChange(event){
