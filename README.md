@@ -2,7 +2,7 @@
 solutions of some freeCodeCamp projects
 
 ## APIs and Microservices Projects
-### 1. Request Header Parser Microservice
+### 1. Timestamp Microservice
 ```javascript
 app.get("/api/timestamp/:date_string?",function(req,res){
   var date = req.params.date_string;
