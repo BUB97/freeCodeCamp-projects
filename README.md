@@ -11,6 +11,98 @@ solutions of some freeCodeCamp projects
 
 
 ## Front End Library Projects
+### 1.Random Quote Machine
+#### html
+```html
+<div id="root"></div>
+```
+#### css
+```css
+#quote-box {
+  margin:0 auto;
+}
+```
+#### JS
+```javascript
+const quoteList = [
+  {quote:1,author:'Mike'},
+  {quote:2,author:'Jerry'},
+  {quote:3,author:'Henry'},
+  {quote:4,author:'Delores'},
+  {quote:5,author:'Hebe'}
+]
+
+//create action
+const fetchQuote = ()=>{
+  return { 
+    type : 'fetch',
+    quoteIndex : Math.floor(Math.random()*(quoteList.length))}
+}
+
+const fetchReducer = (quoteIndex = Math.floor(Math.random()*(quoteList.length)),action)=>{
+  switch(action.type){
+    case 'fetch':
+      return action.quoteIndex;
+    default:
+      return quoteIndex;
+  }
+}
+
+const store = Redux.createStore(fetchReducer);
+
+const mapStateToProps = (state) => {
+  return {quoteIndex : state}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetch : () => {
+      dispatch(fetchQuote())
+    }
+  }
+}
+
+class Price extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit(){
+    this.props.fetch();
+  }
+  render(){
+    console.log(this.props.quoteIndex);
+    return(
+      <div id="quote-box">
+        <h3 id="text">{quoteList[this.props.quoteIndex].quote}</h3>
+        <h3 id="author">{quoteList[this.props.quoteIndex].author}</h3>
+        <button id="new-quote" onClick={this.handleSubmit}>Fetch New</button>
+        <a id="tweet-quote" href="twitter.com/intent/tweet">Link</a>
+      </div>
+    )
+  }
+}
+
+const Provider = ReactRedux.Provider;
+const connect = ReactRedux.connect;
+
+const Container = connect(mapStateToProps,mapDispatchToProps)(Price);
+
+class AppWrapper extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return (
+      <Provider store={store}>
+        <Container />
+        </Provider>
+    )
+  }
+}
+
+ReactDOM.render(<AppWrapper />,document.getElementById('root'));
+```
 ### 2.Markdown Previewer
 #### html
 ```html
