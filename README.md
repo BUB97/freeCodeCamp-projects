@@ -2,6 +2,7 @@
 solutions of some freeCodeCamp projects
 ## Contents
 ## [Front End Library Projects](https://github.com/BUB97/freeCodeCamp-projects/blob/master/README.md#front-end-library-projects)
++ [Random Quote Machine](https://github.com/BUB97/freeCodeCamp-projects/blob/master/README.md#1random-quote-machine)
 + [Markdown Previewer](https://github.com/BUB97/freeCodeCamp-projects/blob/master/README.md#2markdown-previewer)
 ## [APIs and Microservices Projects](https://github.com/BUB97/freeCodeCamp-projects/blob/master/README.md#apis-and-microservices-projects)
 + [Timestamp Microservice](https://github.com/BUB97/freeCodeCamp-projects/blob/master/README.md#1-timestamp-microservice)
